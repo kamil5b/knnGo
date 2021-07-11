@@ -6,12 +6,12 @@ A basic K-Nearest Neighbors Classification Algorithm using Go by kamil5b
 - [How it work](#how-it-work)
   * [Processing Dataset](#processing-dataset)
   * [Processing Data Input](#processing-data-input)
-  * [Euclidean Distance](#euclidean-distance)
-  * [Mantahattan Distance](#mantahattan-distance)
-  * [Minkowski Distance](#minkowski-distance)
-  * [Chebyshev/Supremum Distance](#chebyshev-or-supremum-distance)
-  * [Cosine Distance](#cosine-distance)
-  * [Jaccard Distance](#jaccard-distance)
+    + [Euclidean Distance](#euclidean-distance)
+    + [Mantahattan Distance](#mantahattan-distance)
+    + [Minkowski Distance](#minkowski-distance)
+    + [Chebyshev/Supremum Distance](#chebyshev-or-supremum-distance)
+    + [Cosine Distance](#cosine-distance)
+    + [Jaccard Distance](#jaccard-distance)
 - [How to use](#how-to-use)
 
 # How it work
@@ -45,27 +45,27 @@ Calculate the distance of the input data with the rest of data in the dataset us
 - Cosine Distance
 - Jaccard Distace
 
-## Euclidean Distance
+### Euclidean Distance
 
 Euclidean distance is
 
-## Mantahattan Distance
+### Mantahattan Distance
 
 Mantahattan distance is
 
-## Minkowski Distance
+### Minkowski Distance
 
 Minkowski distance is
 
-## Chebyshev Or Supremum Distance
+### Chebyshev Or Supremum Distance
 
 Chebyshev a.k.a Supremum distance is
 
-## Cosine Distance
+### Cosine Distance
 
 Cosine distance is
 
-## Jaccard Distance
+### Jaccard Distance
 
 Jaccard distance is
 
