@@ -1,13 +1,14 @@
 package knnGo
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 )
 
 type KNNData struct {
 	Classification string
-	Factors        []float64
+	Attributes     []float64
 	Distance       float64
 }
 
@@ -35,8 +36,8 @@ func KNNDataSort(dataset []KNNData, ascending bool) []KNNData {
 
 func (d KNNData) PrintKNNData() {
 	fmt.Print(d.Classification, " ")
-	for i := 0; i < len(d.Factors); i++ {
-		fmt.Print(d.Factors[i], " ")
+	for i := 0; i < len(d.Attributes); i++ {
+		fmt.Print(d.Attributes[i], " ")
 	}
 	if d.Distance >= 0 {
 		fmt.Print(d.Distance)
@@ -73,22 +74,24 @@ func MinMaxNormalize(arr []KNNData) {
 
 }*/
 
-func KNNClassification(k int, dataset []KNNData, inputFactors []float64, distance string, p int) KNNData {
+func KNNClassification(k int, dataset []KNNData, inputAttributes []float64, distance string, p int) (KNNData, error) {
 
 	var d KNNData
 
 	classes := make([]string, 0)
 	arr := dataset
 	if strings.ToLower(distance) == "euclidean" {
-		arr = EuclideanDistance(dataset, inputFactors)
+		arr = EuclideanDistance(dataset, inputAttributes)
 	} else if strings.ToLower(distance) == "manhattan" {
-		arr = ManhattanDistance(dataset, inputFactors)
+		arr = ManhattanDistance(dataset, inputAttributes)
 	} else if strings.ToLower(distance) == "supremum" {
-		arr = SupremumDistance(dataset, inputFactors)
+		arr = SupremumDistance(dataset, inputAttributes)
+	} else if strings.ToLower(distance) == "chebyshev" {
+		arr = ChebyshevDistance(dataset, inputAttributes)
 	} else if strings.ToLower(distance) == "minskowski" {
-		arr = MinskowskiDistance(dataset, inputFactors, p)
+		arr = MinskowskiDistance(dataset, inputAttributes, p)
 	} else {
-		return d
+		return KNNData{}, errors.New("invalid distance types or haven't implemented yet")
 	}
 	arr = KNNDataSort(arr, true)
 	arr = arr[:k]
@@ -96,7 +99,7 @@ func KNNClassification(k int, dataset []KNNData, inputFactors []float64, distanc
 		classes = append(classes, arr[i].Classification)
 	}
 	d.Classification = ValueVote(classes)
-	d.Factors = inputFactors
-	return d
+	d.Attributes = inputAttributes
+	return d, nil
 
 }

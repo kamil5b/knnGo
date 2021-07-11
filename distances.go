@@ -2,54 +2,54 @@ package knnGo
 
 import "math"
 
-func MinskowskiDistance(dataset []KNNData, inputFactors []float64, p int) []KNNData {
+func MinskowskiDistance(dataset []KNNData, inputAttributes []float64, p int) []KNNData {
 
 	arr := dataset
 
 	pfloat := float64(p)
 
 	for i := 0; i < len(arr); i++ {
-		if len(arr[i].Factors) != len(inputFactors) {
+		if len(arr[i].Attributes) != len(inputAttributes) {
 			return nil
 		}
-		sumfactor := float64(0)
-		for j := 0; j < len(arr[i].Factors); j++ {
-			margin := arr[i].Factors[j] - inputFactors[j]
+		sumAttribute := float64(0)
+		for j := 0; j < len(arr[i].Attributes); j++ {
+			margin := arr[i].Attributes[j] - inputAttributes[j]
 			tmp := math.Pow(margin, pfloat) //margin * margin
 			if tmp < 0 {
 				tmp = -1 * tmp
 			}
-			sumfactor += tmp
+			sumAttribute += tmp
 		}
 
-		Distance := math.Pow(sumfactor, 1/pfloat)
+		Distance := math.Pow(sumAttribute, 1/pfloat)
 		arr[i].Distance = Distance
 	}
 	return arr
 }
 
-func EuclideanDistance(dataset []KNNData, inputFactors []float64) []KNNData {
+func EuclideanDistance(dataset []KNNData, inputAttributes []float64) []KNNData {
 
-	return MinskowskiDistance(dataset, inputFactors, 2)
+	return MinskowskiDistance(dataset, inputAttributes, 2)
 }
 
-func ManhattanDistance(dataset []KNNData, inputFactors []float64) []KNNData {
+func ManhattanDistance(dataset []KNNData, inputAttributes []float64) []KNNData {
 
-	return MinskowskiDistance(dataset, inputFactors, 1)
+	return MinskowskiDistance(dataset, inputAttributes, 1)
 }
 
-func SupremumDistance(dataset []KNNData, inputFactors []float64) []KNNData {
+func ChebyshevDistance(dataset []KNNData, inputAttributes []float64) []KNNData {
 
 	arr := dataset
 
 	for i := 0; i < len(arr); i++ {
-		if len(arr[i].Factors) != len(inputFactors) {
+		if len(arr[i].Attributes) != len(inputAttributes) {
 			return nil
 		}
 
 		maxMargin := float64(0)
-		for j := 0; j < len(arr[i].Factors); j++ {
-			margin := arr[i].Factors[j] - inputFactors[j]
+		for j := 0; j < len(arr[i].Attributes); j++ {
+			margin := arr[i].Attributes[j] - inputAttributes[j]
 			if margin < 0 {
 				margin = -1 * margin
 			}
@@ -60,4 +60,8 @@ func SupremumDistance(dataset []KNNData, inputFactors []float64) []KNNData {
 		arr[i].Distance = maxMargin
 	}
 	return arr
+}
+
+func SupremumDistance(dataset []KNNData, inputAttributes []float64) []KNNData {
+	return ChebyshevDistance(dataset, inputAttributes)
 }
