@@ -69,7 +69,7 @@ func loadExcel(filename string) []knnGo.KNNData {
 				tmp = append(tmp, attributeValue[string(factor)])
 			}
 		}
-		data.Factors = tmp
+		data.Attributes = tmp
 		arr = append(arr, data)
 	}
 	return arr
@@ -109,15 +109,7 @@ func main() {
 	inputfloat := inputProcess(input)
 	fmt.Println(input)
 	fmt.Println(inputfloat)
-	/*
-		knn := knnGo.EuclideanDistance(arr, inputfloat)
-		knnGo.PrintKNNDataset(knn)
-		fmt.Println()
-		knnsorted := knnGo.KNNDataSort(arr, true)
-		knnGo.PrintKNNDataset(knnsorted)
-		fmt.Println()
-		knnsorted[0].PrintKNNData()*/
-	result := knnGo.KNNClassification(5, arr, inputfloat, "euclidean", 0)
+	result, _ := knnGo.KNNClassification(5, arr, inputfloat, "euclidean", 0)
 	result.PrintKNNData()
 	print(result.Classification)
 }
