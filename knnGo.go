@@ -69,11 +69,6 @@ func ValueVote(arr []string) string {
 	return votewin
 }
 
-/*
-func MinMaxNormalize(arr []KNNData) {
-
-}*/
-
 func KNNClassification(k int, dataset []KNNData, inputAttributes []float64, distance string, p int) (KNNData, error) {
 
 	var d KNNData
