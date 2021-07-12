@@ -71,7 +71,7 @@ Calculate the distance of the input data with the rest of data in the dataset us
 
 ### Euclidean Distance
 
-Euclidean distance is
+Euclidean distance is 
 
 ### Mantahattan Distance
 
@@ -150,6 +150,8 @@ func ValueVote(arr []string) string
 ```
 
 ## distance.go functions
+Functions in this file containing the metric distances that can be used in this package, 
+
 ### func [EuclideanDistance](#euclidean-distance)
 ```Go
 func EuclideanDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
