@@ -18,7 +18,7 @@ A basic K-Nearest Neighbors Classification Algorithm using Go by kamil5b
   * [Processing Dataset](#processing-dataset)
   * [Processing Data Input](#processing-data-input)
     + [Euclidean Distance](#euclidean-distance)
-    + [Mantahattan Distance](#mantahattan-distance)
+    + [Manhattan Distance](#manhattan-distance)
     + [Minkowski Distance](#minkowski-distance)
     + [Chebyshev Or Supremum Distance](#chebyshev-or-supremum-distance)
     + [Cosine Distance](#cosine-distance)
@@ -63,7 +63,7 @@ The input is an unclassified data containing attributes that similar with or bas
 Calculate the distance of the input data with the rest of data in the dataset using :
 
 - Euclidean Distance
-- Mantahattan Distance
+- Manhattan Distance
 - Minkowski Distance
 - Chebyshev/Supremum Distance
 - Cosine Distance
