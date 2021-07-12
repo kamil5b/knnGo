@@ -150,7 +150,7 @@ func ValueVote(arr []string) string
 ```
 
 ## distance.go functions
-Functions in this file containing the metric distances that can be used in this package, 
+Functions in this file containing the metric distances that can be used in this package, it return an array of KNNData that each data containing the result of the distances.
 
 ### func [EuclideanDistance](#euclidean-distance)
 ```Go
