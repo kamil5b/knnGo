@@ -30,13 +30,13 @@ A basic K-Nearest Neighbors Classification Algorithm using Go by kamil5b
     + [func (d KNNData) PrintKNNData](#func--d-knndata--printknndata)
     + [func ValueVote](#func-valuevote)
   * [distance.go functions](#distancego-functions)
-    + [func [EuclideanDistance](#euclidean-distance)](#func--euclideandistance---euclidean-distance-)
-    + [func [ManhattanDistance](#manhattan-distance)](#func--manhattandistance---manhattan-distance-)
-    + [func [MinkowskiDistance](#minkowski-distance)](#func--minkowskidistance---minkowski-distance-)
-    + [func [ChebyshevDistance](#chebyshev-or-supremum-distance)](#func--chebyshevdistance---chebyshev-or-supremum-distance-)
-    + [func [SupremumDistance](#chebyshev-or-supremum-distance)](#func--supremumdistance---chebyshev-or-supremum-distance-)
-    + [func [CosineDistance](#cosine-distance)](#func--cosinedistance---cosine-distance-)
-    + [func [JaccardDistance](#jaccard-distance)](#func--jaccarddistance---jaccard-distance-)
+    + [func EuclideanDistance](#func-euclideandistance---euclidean-distance-)
+    + [func ManhattanDistance](#func--manhattandistance---manhattan-distance-)
+    + [func MinkowskiDistance](#func--minkowskidistance---minkowski-distance-)
+    + [func ChebyshevDistance](#func--chebyshevdistance---chebyshev-or-supremum-distance-)
+    + [func SupremumDistance](#func--supremumdistance---chebyshev-or-supremum-distance-)
+    + [func CosineDistance](#func--cosinedistance---cosine-distance-)
+    + [func JaccardDistance](#func--jaccarddistance---jaccard-distance-)
 
 # How it work
 
