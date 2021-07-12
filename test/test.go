@@ -98,18 +98,62 @@ func inputProcess(line []string) []float64 {
 	return tmp
 }
 
+func testResult(k int, arr []knnGo.KNNData, inputAttributes []float64, distance string, p int) {
+	fmt.Println()
+	result, err := knnGo.KNNClassification(k, arr, inputAttributes, distance, p)
+	fmt.Print(distance)
+	if distance == strings.ToLower("minkowski") {
+		fmt.Print(" order value : ", p)
+	}
+	fmt.Println()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	result.PrintKNNData()
+	fmt.Println(result.Classification)
+}
+
 func main() {
 	arr := loadExcel("car.csv")
 
-	knnGo.PrintKNNDataset(arr)
+	//knnGo.PrintKNNDataset(arr)
 	fmt.Println()
+
 	input := []string{
 		"v-high", "high", "4", "4", "med", "high",
 	}
 	inputfloat := inputProcess(input)
 	fmt.Println(input)
 	fmt.Println(inputfloat)
-	result, _ := knnGo.KNNClassification(5, arr, inputfloat, "euclidean", 0)
-	result.PrintKNNData()
-	print(result.Classification)
+	testResult(5, arr, inputfloat, "euclidean", 420)
+	testResult(5, arr, inputfloat, "manhattan", 30)
+	testResult(5, arr, inputfloat, "supremum", 40)
+	testResult(5, arr, inputfloat, "chebyshev", 20)
+	testResult(5, arr, inputfloat, "cosine", 42)
+	testResult(5, arr, inputfloat, "jaccard", 4202)
+	testResult(5, arr, inputfloat, "minkowski", 4)
+	testResult(5, arr, inputfloat, "minkowski", 2)
+	testResult(5, arr, inputfloat, "minkowski", 0)
+	testResult(5, arr, inputfloat, "sinus", 0)
+
+	fmt.Println()
+	fmt.Println("Error Cases : ")
+	input = []string{
+		"v-high", "high", "4", "4", "med",
+	}
+	inputfloat = inputProcess(input)
+	fmt.Println(input)
+	fmt.Println(inputfloat)
+	testResult(5, arr, inputfloat, "euclidean", 420)
+	testResult(5, arr, inputfloat, "manhattan", 30)
+	testResult(5, arr, inputfloat, "supremum", 40)
+	testResult(5, arr, inputfloat, "chebyshev", 20)
+	testResult(5, arr, inputfloat, "cosine", 42)
+	testResult(5, arr, inputfloat, "jaccard", 4202)
+	testResult(5, arr, inputfloat, "minkowski", 4)
+	testResult(5, arr, inputfloat, "minkowski", 2)
+	testResult(5, arr, inputfloat, "minkowski", 0)
+	testResult(5, arr, inputfloat, "sinus", 0)
+
 }
