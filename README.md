@@ -30,7 +30,7 @@ A basic K-Nearest Neighbors Classification Algorithm using Go by kamil5b
     + [func (d KNNData) PrintKNNData](#func--d-knndata--printknndata)
     + [func ValueVote](#func-valuevote)
   * [distance.go functions](#distancego-functions)
-    + [func EuclideanDistance](#func-euclideandistance---euclidean-distance-)
+    + [func EuclideanDistance](#func-euclideandistance)
     + [func ManhattanDistance](#func--manhattandistance---manhattan-distance-)
     + [func MinkowskiDistance](#func--minkowskidistance---minkowski-distance-)
     + [func ChebyshevDistance](#func--chebyshevdistance---chebyshev-or-supremum-distance-)
