@@ -31,12 +31,12 @@ A basic K-Nearest Neighbors Classification Algorithm using Go by kamil5b
     + [func ValueVote](#func-valuevote)
   * [distance.go functions](#distancego-functions)
     + [func EuclideanDistance](#func-euclideandistance)
-    + [func ManhattanDistance](#func--manhattandistance---manhattan-distance-)
-    + [func MinkowskiDistance](#func--minkowskidistance---minkowski-distance-)
-    + [func ChebyshevDistance](#func--chebyshevdistance---chebyshev-or-supremum-distance-)
-    + [func SupremumDistance](#func--supremumdistance---chebyshev-or-supremum-distance-)
-    + [func CosineDistance](#func--cosinedistance---cosine-distance-)
-    + [func JaccardDistance](#func--jaccarddistance---jaccard-distance-)
+    + [func ManhattanDistance](#func-manhattandistance)
+    + [func MinkowskiDistance](#func-minkowskidistance)
+    + [func ChebyshevDistance](#func-chebyshevdistance)
+    + [func SupremumDistance](#func-supremumdistance)
+    + [func CosineDistance](#func-cosinedistance)
+    + [func JaccardDistance](#func-jaccarddistance)
 
 # How it work
 
