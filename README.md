@@ -3,17 +3,40 @@
 A basic K-Nearest Neighbors Classification Algorithm using Go by kamil5b
 
 ### TABLE OF CONTENT
+<!--
 - [How it work](#how-it-work)
   * [Processing Dataset](#processing-dataset)
   * [Processing Data Input](#processing-data-input)
-  <!--
     + [Euclidean Distance](#euclidean-distance)
     + [Mantahattan Distance](#mantahattan-distance)
     + [Minkowski Distance](#minkowski-distance)
     + [Chebyshev/Supremum Distance](#chebyshev-or-supremum-distance)
     + [Cosine Distance](#cosine-distance)
-    + [Jaccard Distance](#jaccard-distance)-->
+    + [Jaccard Distance](#jaccard-distance)
+- [How to use](#how-to-use)-->
+- [How it work](#how-it-work)
+  * [Processing Dataset](#processing-dataset)
+  * [Processing Data Input](#processing-data-input)
+    + [Euclidean Distance](#euclidean-distance)
+    + [Mantahattan Distance](#mantahattan-distance)
+    + [Minkowski Distance](#minkowski-distance)
+    + [Chebyshev Or Supremum Distance](#chebyshev-or-supremum-distance)
+    + [Cosine Distance](#cosine-distance)
+    + [Jaccard Distance](#jaccard-distance)
 - [How to use](#how-to-use)
+  * [knnGo.go types and functions](#knngogo-types-and-functions)
+    + [type KNNData struct](#type-knndata-struct)
+    + [func KNNClassification](#func-knnclassification)
+    + [func (d KNNData) PrintKNNData](#func--d-knndata--printknndata)
+    + [func ValueVote](#func-valuevote)
+  * [distance.go functions](#distancego-functions)
+    + [func [EuclideanDistance](#euclidean-distance)](#func--euclideandistance---euclidean-distance-)
+    + [func [ManhattanDistance](#manhattan-distance)](#func--manhattandistance---manhattan-distance-)
+    + [func [MinkowskiDistance](#minkowski-distance)](#func--minkowskidistance---minkowski-distance-)
+    + [func [ChebyshevDistance](#chebyshev-or-supremum-distance)](#func--chebyshevdistance---chebyshev-or-supremum-distance-)
+    + [func [SupremumDistance](#chebyshev-or-supremum-distance)](#func--supremumdistance---chebyshev-or-supremum-distance-)
+    + [func [CosineDistance](#cosine-distance)](#func--cosinedistance---cosine-distance-)
+    + [func [JaccardDistance](#jaccard-distance)](#func--jaccarddistance---jaccard-distance-)
 
 # How it work
 
@@ -46,7 +69,6 @@ Calculate the distance of the input data with the rest of data in the dataset us
 - Cosine Distance
 - Jaccard Distace
 
-<!--
 ### Euclidean Distance
 
 Euclidean distance is
@@ -70,7 +92,7 @@ Cosine distance is
 ### Jaccard Distance
 
 Jaccard distance is
--->
+
 # How to use
 
 To use this package, you have to download and install this repository.
@@ -84,7 +106,7 @@ If you want to use this package to your code you also need to import it
 import github.com/kamil5b/knnGo
 ```
 
-In order this package work, the dataset you are using **must** be converted to an array of [KNNData](#processing-dataset) where the classification is a string and the attributes are float64. **(if your attributes data is ranked enum data, you may convert it to an integer array that contains the ranking of the enum which then convert it to discrete float64)**
+In order this package work, the dataset you are using **must** be converted to an array of [KNNData](#type-knndata-struct) where the classification is a string and the attributes are float64. **(if your attributes data is ranked enum data, you may convert it to an integer array that contains the ranking of the enum which then convert it to discrete float64)**
 
 ## knnGo.go types and functions
 ### type KNNData struct
@@ -105,13 +127,13 @@ This is the main function for this package. This function returning a KNNData co
 - dataset in this parameter is an array of KNNData which is converted from dataset that we had
 - inputAttributes is an array of float64 that contains the input attributes
 - distance is an enum that converted into non-case-sensitive string. The available distances are :
-  * euclidean
-  * manhattan
-  * minkowski
-  * chebyshev
-  * supremum
-  * cosine
-  * jaccard
+  * [euclidean](#func-euclideandistance)
+  * [manhattan](#func-manhattandistance)
+  * [minkowski](#func-minkowskidistance)
+  * [chebyshev](#func-chebyshevdistance)
+  * [supremum](#func-supremumdistance)
+  * [cosine](#func-cosinedistance)
+  * [jaccard](#func-jaccarddistance)
 - p is an integer for minkowski's distance order or the p value. the value doesn't matter if you are not choosing minkowski distance
 
 This function will calculate the distance of the input data with every data in the duplicated dataset and sort ascending based on the distances and then pick the top-k of it and then the classification for the data input is the most populated class among the top-k.
@@ -128,37 +150,37 @@ func ValueVote(arr []string) string
 ```
 
 ## distance.go functions
-### func EuclideanDistance
+### func [EuclideanDistance](#euclidean-distance)
 ```Go
 func EuclideanDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
 ```
 
-### func ManhattanDistance
+### func [ManhattanDistance](#manhattan-distance)
 ```Go
 func ManhattanDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
 ```
 
-### func MinkowskiDistance
+### func [MinkowskiDistance](#minkowski-distance)
 ```Go
 func MinkowskiDistance(dataset []KNNData, inputAttributes []float64, p int) ([]KNNData, error)
 ```
 
-### func ChebyshevDistance
+### func [ChebyshevDistance](#chebyshev-or-supremum-distance)
 ```Go
 func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
 ```
 
-### func SupremumDistance
+### func [SupremumDistance](#chebyshev-or-supremum-distance)
 ```Go
 func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
 ```
 
-### func CosineDistance
+### func [CosineDistance](#cosine-distance)
 ```Go
 func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
 ```
 
-### func JaccardDistance
+### func [JaccardDistance](#jaccard-distance)
 ```Go
 func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
 ```
