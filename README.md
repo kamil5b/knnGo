@@ -6,12 +6,13 @@ A basic K-Nearest Neighbors Classification Algorithm using Go by kamil5b
 - [How it work](#how-it-work)
   * [Processing Dataset](#processing-dataset)
   * [Processing Data Input](#processing-data-input)
+  <!--
     + [Euclidean Distance](#euclidean-distance)
     + [Mantahattan Distance](#mantahattan-distance)
     + [Minkowski Distance](#minkowski-distance)
     + [Chebyshev/Supremum Distance](#chebyshev-or-supremum-distance)
     + [Cosine Distance](#cosine-distance)
-    + [Jaccard Distance](#jaccard-distance)
+    + [Jaccard Distance](#jaccard-distance)-->
 - [How to use](#how-to-use)
 
 # How it work
@@ -22,7 +23,7 @@ The inputs for this package are a dataset that contain a classification column a
 ```Go
 type KNNData struct {
 	Classification string
-	Attributes        []float64
+	Attributes     []float64
 	Distance       float64
 }
 ```
@@ -45,6 +46,7 @@ Calculate the distance of the input data with the rest of data in the dataset us
 - Cosine Distance
 - Jaccard Distace
 
+<!--
 ### Euclidean Distance
 
 Euclidean distance is
@@ -68,5 +70,95 @@ Cosine distance is
 ### Jaccard Distance
 
 Jaccard distance is
-
+-->
 # How to use
+
+To use this package, you have to download and install this repository.
+
+Write this to your terminal :
+```sh
+go get github.com/kamil5b/knnGo
+```
+If you want to use this package to your code you also need to import it
+```Go
+import github.com/kamil5b/knnGo
+```
+
+In order this package work, the dataset you are using **must** be converted to an array of [KNNData](#processing-dataset) where the classification is a string and the attributes are float64. **(if your attributes data is ranked enum data, you may convert it to an integer array that contains the ranking of the enum which then convert it to discrete float64)**
+
+## knnGo.go types and functions
+### type KNNData struct
+```Go
+type KNNData struct {
+	Classification string
+	Attributes     []float64
+	Distance       float64
+}
+```
+### func KNNClassification
+```Go
+func KNNClassification(k int, dataset []KNNData, inputAttributes []float64, distance string, p int) (KNNData, error)
+```
+This is the main function for this package. This function returning a KNNData containing the classification of the input data and for the attributes are the input data attribute itself. 
+
+- k is a value for how much neighbor we observe
+- dataset in this parameter is an array of KNNData which is converted from dataset that we had
+- inputAttributes is an array of float64 that contains the input attributes
+- distance is an enum that converted into non-case-sensitive string. The available distances are :
+  * euclidean
+  * manhattan
+  * minkowski
+  * chebyshev
+  * supremum
+  * cosine
+  * jaccard
+- p is an integer for minkowski's distance order or the p value. the value doesn't matter if you are not choosing minkowski distance
+
+This function will calculate the distance of the input data with every data in the duplicated dataset and sort ascending based on the distances and then pick the top-k of it and then the classification for the data input is the most populated class among the top-k.
+
+### func (d KNNData) PrintKNNData
+```Go
+func (d KNNData) PrintKNNData()
+```
+This function is for printing the KNNData
+
+### func ValueVote
+```Go
+func ValueVote(arr []string) string
+```
+
+## distance.go functions
+### func EuclideanDistance
+```Go
+func EuclideanDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
+```
+
+### func ManhattanDistance
+```Go
+func ManhattanDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
+```
+
+### func MinkowskiDistance
+```Go
+func MinkowskiDistance(dataset []KNNData, inputAttributes []float64, p int) ([]KNNData, error)
+```
+
+### func ChebyshevDistance
+```Go
+func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
+```
+
+### func SupremumDistance
+```Go
+func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
+```
+
+### func CosineDistance
+```Go
+func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
+```
+
+### func JaccardDistance
+```Go
+func MinkowskiDistance(dataset []KNNData, inputAttributes []float64) ([]KNNData, error)
+```
