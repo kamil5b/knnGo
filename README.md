@@ -71,11 +71,12 @@ Calculate the distance of the input data with the rest of data in the dataset us
 
 ### Euclidean Distance
 
-Euclidean distance is 
+Euclidean distance is the length of a line segment between the two points. 
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
-### Mantahattan Distance
+### Manhattan Distance
 
-Mantahattan distance is
+Manhattan distance is
 
 ### Minkowski Distance
 
